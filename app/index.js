@@ -16,6 +16,8 @@ const flash = require('connect-flash');
 
 // Initialize Express.
 const app = express();
+app.use(flash());
+app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
 app.use(passport.initialize());
 
