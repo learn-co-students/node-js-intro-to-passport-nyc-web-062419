@@ -19,6 +19,8 @@ const app = express();
 app.use(flash());
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
+app.use(session({secret: 'our secret string'}));
+app.use(cookieParser());
 app.use(passport.initialize());
 
 // Configure handlebars templates.
