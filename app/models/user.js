@@ -1,5 +1,5 @@
 "use strict";
-
+const bcrypt = require('bcrypt');
 const bookshelf = require('../db/bookshelf');
 
 const Comment = require('./comment');
