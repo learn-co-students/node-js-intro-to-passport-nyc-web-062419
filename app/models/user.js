@@ -29,6 +29,14 @@ const User = bookshelf.Model.extend({
   validatePassword: function(suppliedPassword) {
     let self = this;
     return new 
+    Promise(function(resolve, reject) {
+      const hash = self.attributes.password;
+      bcrypt.compare(suppliedPassword, hash, (err, res) => {
+        if (err) return reject(err);
+        return resolve(res);
+      });
+    });
+  }
 });
 
 module.exports = bookshelf.model('User', User);
