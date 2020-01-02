@@ -17,6 +17,10 @@ const User = bookshelf.Model.extend({
   comments: function() {
     return this.hasMany(Comments);
   },
+  encryptPassword:(model, attrs, options) => {
+    return new Promise((resolve, reject) => {
+      bcrypt.hash(model.attributes.password, 10, (err, hash) => {
+        if (err) return reject(err);
 });
 
 module.exports = bookshelf.model('User', User);
