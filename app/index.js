@@ -9,6 +9,11 @@ const ENV = process.env.NODE_ENV || 'development';
 const config = require('../knexfile');
 const db = knex(config[ENV]);
 
+const passport = require('passport');
+const session = require('express-session');
+const cookieParser = require('cookie-parser');
+const flash = require('connect-flash');
+
 // Initialize Express.
 const app = express();
 app.use(bodyParser.json());
