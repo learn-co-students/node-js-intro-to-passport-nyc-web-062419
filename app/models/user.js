@@ -21,6 +21,14 @@ const User = bookshelf.Model.extend({
     return new Promise((resolve, reject) => {
       bcrypt.hash(model.attributes.password, 10, (err, hash) => {
         if (err) return reject(err);
+         model.set('password', hash);
+        resolve(hash);
+      });
+    });
+  },
+  validatePassword: function(suppliedPassword) {
+    let self = this;
+    return new 
 });
 
 module.exports = bookshelf.model('User', User);
